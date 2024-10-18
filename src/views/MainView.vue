@@ -1,7 +1,5 @@
 <script setup>
-import SearcheComponent from '@/componentChild/BodyChild/SearchComponent.vue';
-import AfficheAlbum from '@/componentChild/BodyChild/AfficheAlbum.vue';
-
+import AfficheAlbum from '@/components/MainComponents/AfficheAlbum.vue';
 const props = defineProps(['albums']);
 
 </script>

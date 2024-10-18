@@ -1,12 +1,12 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import Nav from '@/components/Nav.vue';
-import Body from '@/components/Body.vue';
+import HeaderView from '@/views/HeaderView.vue';
+import MainView from '@/views/MainView.vue';
 
 const dataAlbums = ref([]);
 
 const getData = () => {
-  return fetch('http://localhost:5173/src/albums.json')
+  return fetch('/src/data/albums.json')
   .then(res => res.json())
   .then(response => dataAlbums.value = response)
   .catch(error => console.log(error));
@@ -19,11 +19,10 @@ onMounted(() => {
 
 
 <template>
-    <Nav />
+    <!-- <HeaderView /> -->
 
-    <Body 
-    :albums="dataAlbums" 
-    />
+    <!-- <MainView  :albums="dataAlbums"  /> -->
+     <RouterView />
 </template>
 
 

@@ -1,5 +1,5 @@
 <script setup>
-import TimerComponent from "@/componentChild/TimerComponent.vue";
+import TimerComponent from "@/components/MainComponents/TimerComponent.vue";
 
 </script>
 
