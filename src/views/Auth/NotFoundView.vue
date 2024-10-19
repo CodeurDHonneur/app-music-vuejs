@@ -29,18 +29,19 @@ p { font: normal 20px/1.25rem monospace; }
 h2 { font: normal 2.75rem/1.05em monospace; }
 
 .container {
-  height: 100vh;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   margin: auto;
-  background: rgb(81, 81, 148); 
+  background: linear-gradient(135deg, #1e3c72, #2a5298);; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.bsod {
-  padding-top: 10%; 
-}
 
 .neg {
     text-align: center;
