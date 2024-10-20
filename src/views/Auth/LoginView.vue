@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
+import { veryfPassword, getUser } from "@/services/apiUsersService";
 
 const router = useRouter();
 
@@ -10,10 +11,7 @@ const password = ref("");
 const userExist = ref(false);
 const data = ref([]);
 
-async function fetchUser() {
-  const resp = await fetch("/user-data.json");
-  data.value = await resp.json();
-}
+
 
 async function connectUser() {
   console.log(user.value);
@@ -30,14 +28,34 @@ async function connectUser() {
   }
 }
 
-function submit() {
-  // console.log(userEmail.value);
-  // router.push('/dashboard');
+//Foncton de récupération des valeurs de champ
+async function submit() {
+ if(
+  inputValide(userEmail) && inputValide(password)
+ ) {
+  const email = userEmail.value;
+  const pass = password.value;
+  const user = await getUser(email);
+  const length = user.length;
+
+  if(length !== 0){
+    
+  } else {
+    alert(`Aucune correspondace trouvée pour ${email}. Merci de réessayer !`);
+  }
+ } else {
+
+ }
   connectUser();
 }
 
+//function pour s'assurer que les champs ne sont pas vides
+const inputValide = (param) => {
+  return param.value !== "";
+};
+
 onMounted(() => {
-  fetchUser();
+
 });
 </script>
 
@@ -49,13 +67,13 @@ onMounted(() => {
       <form @submit.prevent="submit">
         <input
           type="email"
-          v-model="userEmail"
+          v-model.trim="userEmail"
           placeholder="Votre email"
           required
         />
         <input
           type="password"
-          v-model="password"
+          v-model.trim="password"
           placeholder="Password"
           required
         />

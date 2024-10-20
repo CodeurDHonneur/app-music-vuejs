@@ -1,2 +1,4 @@
-import { getUser } from "./apiUsersSrvice";
+import { getUser } from "./apiUsersService";
+
+
 

@@ -16,3 +16,4 @@
 utilisation de l'historique revenir à la page précédents depuis la page 404
 à la connexion, créer une donnée dans le localStorage pour l'utilisateur connecté 
 Si l'utilisateur n'est pas connecté, le ramener à la page login 
+faire un composant "toast" pour les messages avec utilisation de transition
